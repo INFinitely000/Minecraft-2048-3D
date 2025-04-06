@@ -18,7 +18,11 @@ namespace MineBlock3D.Scripts.States
             
             _states = new Dictionary<Type, IExitableState>()
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, services.Single<IFactory>())
+                [typeof(BootstrapState)] = new BootstrapState(this, 
+                    services.Single<IFactory>(), 
+                    services.Single<IAssets>(), 
+                    services.Single<IInput>()),
+                [typeof(GameplayState)] = new GameplayState()
             };
         }
 

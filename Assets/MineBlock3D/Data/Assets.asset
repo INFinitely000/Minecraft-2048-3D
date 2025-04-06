@@ -14,7 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabs:
     dictionaryList:
-    - Key: Debug_cube
+    - Key: BlockSpawner
       Value: {fileID: 2879471776545855382, guid: e86d09feaf4926c44b23af56ab6cc8cb, type: 3}
       index: 0
       isKeyDuplicated: 0
+    - Key: Block
+      Value: {fileID: 2879471776545855382, guid: cd309e960a2d019479031e9406cf695b, type: 3}
+      index: 1
+      isKeyDuplicated: 0
+  _blockInfos:
+  - material: {fileID: 2100000, guid: faf30519f16994146a68fe869f829f84, type: 2}
+  - material: {fileID: 2100000, guid: 663defd64432bad458fcc37a58e398a3, type: 2}
+  - material: {fileID: 2100000, guid: dc9717b09b8a0bf4a80e1fb333befd87, type: 2}
+  - material: {fileID: 2100000, guid: 65a78350293bd224baed050f315d57dd, type: 2}
+  - material: {fileID: 2100000, guid: d6d795b77a1503842b5fa57dedfb06f9, type: 2}
+  - material: {fileID: 2100000, guid: 0ce9772b9afbf2b4d9a0b40d1cf4f840, type: 2}
+  - material: {fileID: 2100000, guid: 94289fe77a7b6d749800999bc7be9159, type: 2}
+  - material: {fileID: 2100000, guid: 19d09b281a808af44980f88e240b1b65, type: 2}
+  - material: {fileID: 2100000, guid: 71a188ddc98f8e24d937ea6545519767, type: 2}
+  - material: {fileID: 2100000, guid: 907f43200242ecb44b7a0a6885421f69, type: 2}
+  - material: {fileID: 2100000, guid: fdf1f49ff655a514eabbc2fdd6891068, type: 2}
+  - material: {fileID: 2100000, guid: b0ff635bce6e9264c8b733424aa649d6, type: 2}
+  - material: {fileID: 2100000, guid: 902a735a275593c48a924ac931785621, type: 2}
+  - material: {fileID: 2100000, guid: 65a78350293bd224baed050f315d57dd, type: 2}
+  - material: {fileID: 2100000, guid: 3e893c890e4a4254fbe020bb07de1c01, type: 2}
+  - material: {fileID: 2100000, guid: 0c6ad6da01c4d934395d5ec43347e796, type: 2}
+  - material: {fileID: 2100000, guid: 1573ec4b9537993458e5aeb7537c34b4, type: 2}
+  - material: {fileID: 2100000, guid: b59111c4c164a3044ad08213a647cfa9, type: 2}
+  - material: {fileID: 2100000, guid: a872ff14b3806ef459ff754d88043ef3, type: 2}
+  - material: {fileID: 2100000, guid: 77fa6d8cf8a230548871532f8e9b81f5, type: 2}
