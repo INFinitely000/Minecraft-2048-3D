@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace MineBlock3D.Scripts.Service
 {
@@ -8,6 +10,16 @@ namespace MineBlock3D.Scripts.Service
         {
             get
             {
+                var eventData = new PointerEventData(EventSystem.current)
+                {
+                    position = Input.mousePosition
+                };
+
+                var results = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(eventData, results);
+
+                if (results.Count > 0) return InputState.None;
+                
                 if (Input.GetButtonDown("Fire1")) return InputState.Down;
                 if (Input.GetButton("Fire1")) return InputState.Pressed;
                 if (Input.GetButtonUp("Fire1")) return InputState.Up;

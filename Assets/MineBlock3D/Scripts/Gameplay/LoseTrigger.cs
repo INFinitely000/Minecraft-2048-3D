@@ -12,7 +12,7 @@ namespace MineBlock3D.Scripts.Gameplay
         
         private void OnCollisionEnter(Collision other)
         {
-            if (other.transform.TryGetComponent<Block>(out var block))
+            if (other.transform.TryGetComponent<Block>(out var block) && block.IsLineMovementEnabled == false)
                 callback?.Invoke();
         }
     }

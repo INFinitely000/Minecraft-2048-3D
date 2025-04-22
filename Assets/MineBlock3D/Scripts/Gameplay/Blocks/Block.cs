@@ -19,6 +19,9 @@ namespace MineBlock3D.Scripts.Gameplay
         public IFactory Factory { get; private set; }
         public BlockInfo BlockInfo { get; private set; }
         public bool IsLineMovementEnabled { get; private set; }
+
+        public static event Action<Block> Concatted;
+        
         
         public void Construct(int cost, BlockInfo blockInfo, IFactory factory)
         {
@@ -36,9 +39,9 @@ namespace MineBlock3D.Scripts.Gameplay
         {
             if (IsLineMovementEnabled) return;
 
+            IsLineMovementEnabled = true;
             Rigidbody.useGravity = false;
             Rigidbody.mass = 3f;
-            IsLineMovementEnabled = true;
         }
 
         public void EnablePulseAnimation()
@@ -55,8 +58,11 @@ namespace MineBlock3D.Scripts.Gameplay
             IsLineMovementEnabled = false;
         }
 
-        private void OnCollisionEnter(Collision other) =>
-            DisableLineMovement();
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.transform.CompareTag("BlockStopper"))
+                DisableLineMovement();
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -84,12 +90,14 @@ namespace MineBlock3D.Scripts.Gameplay
                 .OrderBy(b => Vector3.Distance(b.transform.position, position))
                 .FirstOrDefault();
 
-            var velocity = Vector3.up * 5f + (closestBlock ? (closestBlock.transform.position - position) * 0.5f : Vector3.zero);
+            var velocity = Vector3.up * 5f + (closestBlock ? (closestBlock.transform.position - position) * 0.5f : new Vector3(0f,1f,1f));
             
             var createdBlock = Factory.CreateBlock(cost, position, rotation);
                 createdBlock.Rigidbody.linearVelocity = velocity;
                 createdBlock.Rigidbody.angularVelocity = Random.onUnitSphere * 5f;
                 createdBlock.EnablePulseAnimation();
+
+            Concatted?.Invoke(createdBlock);
         }
 
         private IEnumerator PlayPulseAnimation()

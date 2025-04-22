@@ -4,6 +4,7 @@ using MineBlock3D.Scripts.Service;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 namespace MineBlock3D.Scripts.Gameplay
@@ -62,7 +63,7 @@ namespace MineBlock3D.Scripts.Gameplay
         private void Update()
         {
             if (Game.IsActive == false) return;
-            
+
             if (Input.Fire == InputState.Pressed || Input.Fire == InputState.Up)
                 transform.position = Vector3.right * Mathf.Clamp(Input.Horizontal * _inputMultiplier, -1f, 1f) * _horizontalRange;
 
